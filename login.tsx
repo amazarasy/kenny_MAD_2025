@@ -1,23 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import TextInput from './components/textinput';
 import Button from './components/button';
 
 const Login = () => {
+  const [formData, setFormData] = useState({
+    nama: '',
+    username: '',
+    email: '',
+    address: '',
+    phoneNumber: ''
+  });
+
+  const handleInputChange = (field, value) => {
+    setFormData(prevData => ({
+      ...prevData,
+      [field]: value
+    }));
+  };
+
+  const onSignIn = () => {
+    console.log('Data Register:');
+    console.log('Nama:', formData.nama);
+    console.log('Username:', formData.username);
+    console.log('Email:', formData.email);
+    console.log('Address:', formData.address);
+    console.log('Phone Number:', formData.phoneNumber);
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome</Text>
-      <TextInput placeholder="Masukan username anda" label="Username" />
-      <TextInput
-        placeholder="Masukan password anda"
-        label="Password"
-        secureTextEntry={true}
+      <Text style={styles.title}>Register</Text>
+      <TextInput 
+        placeholder="Masukan nama lengkap anda" 
+        label="nama" 
+        onChangeText={(text) => handleInputChange('nama', text)}
       />
-      <Button label="Sign In" />
-      <Button label="Create New Account" color="#797171" colorText="#ffffff" />
-      <Button label="Sign in google" color="#ff0000ff" colorText="#ffffff" />
-       <Button label="Sign in Facebook" color="#003cffff" colorText="#ffffff" />
-        <Button label="Sign in Apple" color="#000000ff" colorText="#ffffff" />
+      <TextInput 
+        placeholder="Masukan username anda" 
+        label="Username" 
+        onChangeText={(text) => handleInputChange('username', text)}
+      />
+      <TextInput 
+        placeholder="Masukan Email anda" 
+        label="Email" 
+        onChangeText={(text) => handleInputChange('email', text)}
+      />
+      <TextInput 
+        placeholder="Masukan Addres anda" 
+        label="Addres" 
+        onChangeText={(text) => handleInputChange('address', text)}
+      />
+      <TextInput 
+        placeholder="Masukan nomor telpon anda" 
+        label="Phone number" 
+        onChangeText={(text) => handleInputChange('phoneNumber', text)}
+      />
+      
+      <Button label="register" color="#ca0bf0ff" colorText="#ffffff" onPress={onSignIn} />
     </View>
   );
 };
