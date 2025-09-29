@@ -3,10 +3,8 @@ import {Image, StyleSheet, Text, View} from 'react-native';
 const App = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>hello world</Text>
       <Image style={styles.logo}source={require('../kennyMADProject2025/img/jinx.jpg')}/>
-      <Image style={styles.laga}source={{uri:'https://4kwallpapers.com/images/walls/thumbs_3t/15365.jpg'}}/>
-       <Image style={styles.leak}source={{uri:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=='}}/>
+      
     </View>
   );
 };
